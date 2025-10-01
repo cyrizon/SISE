@@ -1,0 +1,734 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PMML version="4.2" xmlns="http://www.dmg.org/PMML-4_2">
+  <Header copyright="cpecnik">
+    <Application name="KNIME" version="5.4.4"/>
+  </Header>
+  <DataDictionary numberOfFields="19">
+    <DataField name="cust_category" optype="categorical" dataType="string">
+      <Value value="cat_B"/>
+      <Value value="cat_C"/>
+      <Value value="cat_A"/>
+    </DataField>
+    <DataField name="age" optype="categorical" dataType="string">
+      <Value value=">=51"/>
+      <Value value="&lt;=50"/>
+    </DataField>
+    <DataField name="bank_seniority" optype="categorical" dataType="string">
+      <Value value=">=5"/>
+      <Value value="&lt;=1"/>
+      <Value value="1&lt;bs&lt;5"/>
+    </DataField>
+    <DataField name="gender" optype="categorical" dataType="string">
+      <Value value="F"/>
+      <Value value="M"/>
+    </DataField>
+    <DataField name="account" optype="categorical" dataType="string">
+      <Value value="y"/>
+      <Value value="n"/>
+    </DataField>
+    <DataField name="credit_card" optype="categorical" dataType="string">
+      <Value value="y"/>
+      <Value value="n"/>
+    </DataField>
+    <DataField name="privilege_card" optype="categorical" dataType="string">
+      <Value value="n"/>
+      <Value value="y"/>
+    </DataField>
+    <DataField name="savings_livret" optype="categorical" dataType="string">
+      <Value value="y"/>
+      <Value value="n"/>
+    </DataField>
+    <DataField name="savings_ldd" optype="categorical" dataType="string">
+      <Value value="y"/>
+      <Value value="n"/>
+    </DataField>
+    <DataField name="savings_cel" optype="categorical" dataType="string">
+      <Value value="n"/>
+      <Value value="y"/>
+    </DataField>
+    <DataField name="savings_pel" optype="categorical" dataType="string">
+      <Value value="n"/>
+      <Value value="y"/>
+    </DataField>
+    <DataField name="savings_pep" optype="categorical" dataType="string">
+      <Value value="n"/>
+      <Value value="y"/>
+    </DataField>
+    <DataField name="revolving_credit" optype="categorical" dataType="string">
+      <Value value="n"/>
+      <Value value="y"/>
+    </DataField>
+    <DataField name="revolving_card" optype="categorical" dataType="string">
+      <Value value="n"/>
+      <Value value="y"/>
+    </DataField>
+    <DataField name="personnal_credit" optype="categorical" dataType="string">
+      <Value value="n"/>
+      <Value value="y"/>
+    </DataField>
+    <DataField name="housing_credit" optype="categorical" dataType="string">
+      <Value value="n"/>
+      <Value value="y"/>
+    </DataField>
+    <DataField name="financial_titles" optype="categorical" dataType="string">
+      <Value value="y"/>
+      <Value value="n"/>
+    </DataField>
+    <DataField name="financial_savings" optype="categorical" dataType="string">
+      <Value value="y"/>
+      <Value value="n"/>
+    </DataField>
+    <DataField name="target" optype="categorical" dataType="string">
+      <Value value="positive"/>
+      <Value value="negative"/>
+    </DataField>
+  </DataDictionary>
+  <TreeModel modelName="DecisionTree" functionName="classification" splitCharacteristic="multiSplit" missingValueStrategy="lastPrediction" noTrueChildStrategy="returnNullPrediction">
+    <MiningSchema>
+      <MiningField name="cust_category" invalidValueTreatment="asIs"/>
+      <MiningField name="age" invalidValueTreatment="asIs"/>
+      <MiningField name="bank_seniority" invalidValueTreatment="asIs"/>
+      <MiningField name="gender" invalidValueTreatment="asIs"/>
+      <MiningField name="account" invalidValueTreatment="asIs"/>
+      <MiningField name="credit_card" invalidValueTreatment="asIs"/>
+      <MiningField name="privilege_card" invalidValueTreatment="asIs"/>
+      <MiningField name="savings_livret" invalidValueTreatment="asIs"/>
+      <MiningField name="savings_ldd" invalidValueTreatment="asIs"/>
+      <MiningField name="savings_cel" invalidValueTreatment="asIs"/>
+      <MiningField name="savings_pel" invalidValueTreatment="asIs"/>
+      <MiningField name="savings_pep" invalidValueTreatment="asIs"/>
+      <MiningField name="revolving_credit" invalidValueTreatment="asIs"/>
+      <MiningField name="revolving_card" invalidValueTreatment="asIs"/>
+      <MiningField name="personnal_credit" invalidValueTreatment="asIs"/>
+      <MiningField name="housing_credit" invalidValueTreatment="asIs"/>
+      <MiningField name="financial_titles" invalidValueTreatment="asIs"/>
+      <MiningField name="financial_savings" invalidValueTreatment="asIs"/>
+      <MiningField name="target" invalidValueTreatment="asIs" usageType="target"/>
+    </MiningSchema>
+    <Node id="0" score="positive" recordCount="26130.0">
+      <True/>
+      <ScoreDistribution value="positive" recordCount="13078.0"/>
+      <ScoreDistribution value="negative" recordCount="13052.0"/>
+      <Node id="1" score="negative" recordCount="24250.0">
+        <SimplePredicate field="savings_pep" operator="equal" value="n"/>
+        <ScoreDistribution value="positive" recordCount="11337.0"/>
+        <ScoreDistribution value="negative" recordCount="12913.0"/>
+        <Node id="408" score="positive" recordCount="17230.0">
+          <SimplePredicate field="financial_titles" operator="equal" value="y"/>
+          <ScoreDistribution value="positive" recordCount="9963.0"/>
+          <ScoreDistribution value="negative" recordCount="7267.0"/>
+          <Node id="672" score="positive" recordCount="17202.0">
+            <SimplePredicate field="account" operator="equal" value="y"/>
+            <ScoreDistribution value="positive" recordCount="9963.0"/>
+            <ScoreDistribution value="negative" recordCount="7239.0"/>
+            <Node id="1076" score="positive" recordCount="14207.0">
+              <SimplePredicate field="bank_seniority" operator="equal" value=">=5"/>
+              <ScoreDistribution value="positive" recordCount="8841.0"/>
+              <ScoreDistribution value="negative" recordCount="5366.0"/>
+              <Node id="1340" score="positive" recordCount="5147.0">
+                <SimplePredicate field="financial_savings" operator="equal" value="y"/>
+                <ScoreDistribution value="positive" recordCount="4119.0"/>
+                <ScoreDistribution value="negative" recordCount="1028.0"/>
+                <Node id="1417" score="positive" recordCount="3573.0">
+                  <SimplePredicate field="age" operator="equal" value=">=51"/>
+                  <ScoreDistribution value="positive" recordCount="3045.0"/>
+                  <ScoreDistribution value="negative" recordCount="528.0"/>
+                </Node>
+                <Node id="1396" score="positive" recordCount="1574.0">
+                  <SimplePredicate field="age" operator="equal" value="&lt;=50"/>
+                  <ScoreDistribution value="positive" recordCount="1074.0"/>
+                  <ScoreDistribution value="negative" recordCount="500.0"/>
+                  <Node id="1424" score="positive" recordCount="1269.0">
+                    <SimplePredicate field="cust_category" operator="equal" value="cat_B"/>
+                    <ScoreDistribution value="positive" recordCount="859.0"/>
+                    <ScoreDistribution value="negative" recordCount="410.0"/>
+                  </Node>
+                  <Node id="2188" score="negative" recordCount="83.0">
+                    <SimplePredicate field="cust_category" operator="equal" value="cat_C"/>
+                    <ScoreDistribution value="positive" recordCount="37.0"/>
+                    <ScoreDistribution value="negative" recordCount="46.0"/>
+                  </Node>
+                  <Node id="2239" score="positive" recordCount="222.0">
+                    <SimplePredicate field="cust_category" operator="equal" value="cat_A"/>
+                    <ScoreDistribution value="positive" recordCount="178.0"/>
+                    <ScoreDistribution value="negative" recordCount="44.0"/>
+                  </Node>
+                </Node>
+              </Node>
+              <Node id="2702" score="positive" recordCount="9060.0">
+                <SimplePredicate field="financial_savings" operator="equal" value="n"/>
+                <ScoreDistribution value="positive" recordCount="4722.0"/>
+                <ScoreDistribution value="negative" recordCount="4338.0"/>
+                <Node id="2704" score="positive" recordCount="6718.0">
+                  <SimplePredicate field="cust_category" operator="equal" value="cat_B"/>
+                  <ScoreDistribution value="positive" recordCount="3689.0"/>
+                  <ScoreDistribution value="negative" recordCount="3029.0"/>
+                  <Node id="2765" score="positive" recordCount="4671.0">
+                    <SimplePredicate field="age" operator="equal" value=">=51"/>
+                    <ScoreDistribution value="positive" recordCount="2880.0"/>
+                    <ScoreDistribution value="negative" recordCount="1791.0"/>
+                    <Node id="2807" score="positive" recordCount="2129.0">
+                      <SimplePredicate field="savings_livret" operator="equal" value="y"/>
+                      <ScoreDistribution value="positive" recordCount="1529.0"/>
+                      <ScoreDistribution value="negative" recordCount="600.0"/>
+                    </Node>
+                    <Node id="3331" score="positive" recordCount="2542.0">
+                      <SimplePredicate field="savings_livret" operator="equal" value="n"/>
+                      <ScoreDistribution value="positive" recordCount="1351.0"/>
+                      <ScoreDistribution value="negative" recordCount="1191.0"/>
+                      <Node id="3390" score="positive" recordCount="2409.0">
+                        <SimplePredicate field="savings_pel" operator="equal" value="n"/>
+                        <ScoreDistribution value="positive" recordCount="1257.0"/>
+                        <ScoreDistribution value="negative" recordCount="1152.0"/>
+                        <Node id="3404" score="positive" recordCount="2301.0">
+                          <SimplePredicate field="revolving_card" operator="equal" value="n"/>
+                          <ScoreDistribution value="positive" recordCount="1190.0"/>
+                          <ScoreDistribution value="negative" recordCount="1111.0"/>
+                          <Node id="3405" score="positive" recordCount="2209.0">
+                            <SimplePredicate field="revolving_credit" operator="equal" value="n"/>
+                            <ScoreDistribution value="positive" recordCount="1157.0"/>
+                            <ScoreDistribution value="negative" recordCount="1052.0"/>
+                          </Node>
+                          <Node id="3474" score="negative" recordCount="92.0">
+                            <SimplePredicate field="revolving_credit" operator="equal" value="y"/>
+                            <ScoreDistribution value="positive" recordCount="33.0"/>
+                            <ScoreDistribution value="negative" recordCount="59.0"/>
+                          </Node>
+                        </Node>
+                        <Node id="3509" score="positive" recordCount="108.0">
+                          <SimplePredicate field="revolving_card" operator="equal" value="y"/>
+                          <ScoreDistribution value="positive" recordCount="67.0"/>
+                          <ScoreDistribution value="negative" recordCount="41.0"/>
+                        </Node>
+                      </Node>
+                      <Node id="3544" score="positive" recordCount="133.0">
+                        <SimplePredicate field="savings_pel" operator="equal" value="y"/>
+                        <ScoreDistribution value="positive" recordCount="94.0"/>
+                        <ScoreDistribution value="negative" recordCount="39.0"/>
+                      </Node>
+                    </Node>
+                  </Node>
+                  <Node id="3583" score="negative" recordCount="2047.0">
+                    <SimplePredicate field="age" operator="equal" value="&lt;=50"/>
+                    <ScoreDistribution value="positive" recordCount="809.0"/>
+                    <ScoreDistribution value="negative" recordCount="1238.0"/>
+                    <Node id="3584" score="negative" recordCount="1731.0">
+                      <SimplePredicate field="savings_pel" operator="equal" value="n"/>
+                      <ScoreDistribution value="positive" recordCount="628.0"/>
+                      <ScoreDistribution value="negative" recordCount="1103.0"/>
+                      <Node id="3585" score="negative" recordCount="1464.0">
+                        <SimplePredicate field="privilege_card" operator="equal" value="n"/>
+                        <ScoreDistribution value="positive" recordCount="489.0"/>
+                        <ScoreDistribution value="negative" recordCount="975.0"/>
+                      </Node>
+                      <Node id="3802" score="positive" recordCount="267.0">
+                        <SimplePredicate field="privilege_card" operator="equal" value="y"/>
+                        <ScoreDistribution value="positive" recordCount="139.0"/>
+                        <ScoreDistribution value="negative" recordCount="128.0"/>
+                        <Node id="3803" score="negative" recordCount="215.0">
+                          <SimplePredicate field="revolving_card" operator="equal" value="n"/>
+                          <ScoreDistribution value="positive" recordCount="106.0"/>
+                          <ScoreDistribution value="negative" recordCount="109.0"/>
+                          <Node id="3804" score="negative" recordCount="66.0">
+                            <SimplePredicate field="gender" operator="equal" value="F"/>
+                            <ScoreDistribution value="positive" recordCount="28.0"/>
+                            <ScoreDistribution value="negative" recordCount="38.0"/>
+                          </Node>
+                          <Node id="3829" score="positive" recordCount="149.0">
+                            <SimplePredicate field="gender" operator="equal" value="M"/>
+                            <ScoreDistribution value="positive" recordCount="78.0"/>
+                            <ScoreDistribution value="negative" recordCount="71.0"/>
+                          </Node>
+                        </Node>
+                        <Node id="3868" score="positive" recordCount="52.0">
+                          <SimplePredicate field="revolving_card" operator="equal" value="y"/>
+                          <ScoreDistribution value="positive" recordCount="33.0"/>
+                          <ScoreDistribution value="negative" recordCount="19.0"/>
+                        </Node>
+                      </Node>
+                    </Node>
+                    <Node id="3897" score="positive" recordCount="316.0">
+                      <SimplePredicate field="savings_pel" operator="equal" value="y"/>
+                      <ScoreDistribution value="positive" recordCount="181.0"/>
+                      <ScoreDistribution value="negative" recordCount="135.0"/>
+                    </Node>
+                  </Node>
+                </Node>
+                <Node id="2703" score="negative" recordCount="1190.0">
+                  <SimplePredicate field="cust_category" operator="equal" value="cat_C"/>
+                  <ScoreDistribution value="positive" recordCount="262.0"/>
+                  <ScoreDistribution value="negative" recordCount="928.0"/>
+                </Node>
+                <Node id="2892" score="positive" recordCount="1152.0">
+                  <SimplePredicate field="cust_category" operator="equal" value="cat_A"/>
+                  <ScoreDistribution value="positive" recordCount="771.0"/>
+                  <ScoreDistribution value="negative" recordCount="381.0"/>
+                </Node>
+              </Node>
+            </Node>
+            <Node id="4020" score="negative" recordCount="674.0">
+              <SimplePredicate field="bank_seniority" operator="equal" value="&lt;=1"/>
+              <ScoreDistribution value="positive" recordCount="14.0"/>
+              <ScoreDistribution value="negative" recordCount="660.0"/>
+            </Node>
+            <Node id="4021" score="negative" recordCount="2321.0">
+              <SimplePredicate field="bank_seniority" operator="equal" value="1&lt;bs&lt;5"/>
+              <ScoreDistribution value="positive" recordCount="1108.0"/>
+              <ScoreDistribution value="negative" recordCount="1213.0"/>
+              <Node id="4046" score="positive" recordCount="884.0">
+                <SimplePredicate field="age" operator="equal" value=">=51"/>
+                <ScoreDistribution value="positive" recordCount="554.0"/>
+                <ScoreDistribution value="negative" recordCount="330.0"/>
+                <Node id="4055" score="positive" recordCount="260.0">
+                  <SimplePredicate field="financial_savings" operator="equal" value="y"/>
+                  <ScoreDistribution value="positive" recordCount="205.0"/>
+                  <ScoreDistribution value="negative" recordCount="55.0"/>
+                </Node>
+                <Node id="4195" score="positive" recordCount="624.0">
+                  <SimplePredicate field="financial_savings" operator="equal" value="n"/>
+                  <ScoreDistribution value="positive" recordCount="349.0"/>
+                  <ScoreDistribution value="negative" recordCount="275.0"/>
+                  <Node id="4196" score="positive" recordCount="124.0">
+                    <SimplePredicate field="savings_ldd" operator="equal" value="y"/>
+                    <ScoreDistribution value="positive" recordCount="91.0"/>
+                    <ScoreDistribution value="negative" recordCount="33.0"/>
+                  </Node>
+                  <Node id="4235" score="positive" recordCount="500.0">
+                    <SimplePredicate field="savings_ldd" operator="equal" value="n"/>
+                    <ScoreDistribution value="positive" recordCount="258.0"/>
+                    <ScoreDistribution value="negative" recordCount="242.0"/>
+                    <Node id="4236" score="positive" recordCount="369.0">
+                      <SimplePredicate field="cust_category" operator="equal" value="cat_B"/>
+                      <ScoreDistribution value="positive" recordCount="193.0"/>
+                      <ScoreDistribution value="negative" recordCount="176.0"/>
+                      <Node id="4237" score="negative" recordCount="329.0">
+                        <SimplePredicate field="privilege_card" operator="equal" value="n"/>
+                        <ScoreDistribution value="positive" recordCount="164.0"/>
+                        <ScoreDistribution value="negative" recordCount="165.0"/>
+                        <Node id="4238" score="positive" recordCount="41.0">
+                          <SimplePredicate field="savings_livret" operator="equal" value="y"/>
+                          <ScoreDistribution value="positive" recordCount="24.0"/>
+                          <ScoreDistribution value="negative" recordCount="17.0"/>
+                        </Node>
+                        <Node id="4251" score="negative" recordCount="288.0">
+                          <SimplePredicate field="savings_livret" operator="equal" value="n"/>
+                          <ScoreDistribution value="positive" recordCount="140.0"/>
+                          <ScoreDistribution value="negative" recordCount="148.0"/>
+                          <Node id="4252" score="negative" recordCount="267.0">
+                            <SimplePredicate field="personnal_credit" operator="equal" value="n"/>
+                            <ScoreDistribution value="positive" recordCount="132.0"/>
+                            <ScoreDistribution value="negative" recordCount="135.0"/>
+                            <Node id="4253" score="positive" recordCount="149.0">
+                              <SimplePredicate field="gender" operator="equal" value="F"/>
+                              <ScoreDistribution value="positive" recordCount="79.0"/>
+                              <ScoreDistribution value="negative" recordCount="70.0"/>
+                            </Node>
+                            <Node id="4268" score="negative" recordCount="118.0">
+                              <SimplePredicate field="gender" operator="equal" value="M"/>
+                              <ScoreDistribution value="positive" recordCount="53.0"/>
+                              <ScoreDistribution value="negative" recordCount="65.0"/>
+                            </Node>
+                          </Node>
+                          <Node id="4281" score="negative" recordCount="21.0">
+                            <SimplePredicate field="personnal_credit" operator="equal" value="y"/>
+                            <ScoreDistribution value="positive" recordCount="8.0"/>
+                            <ScoreDistribution value="negative" recordCount="13.0"/>
+                          </Node>
+                        </Node>
+                      </Node>
+                      <Node id="4290" score="positive" recordCount="40.0">
+                        <SimplePredicate field="privilege_card" operator="equal" value="y"/>
+                        <ScoreDistribution value="positive" recordCount="29.0"/>
+                        <ScoreDistribution value="negative" recordCount="11.0"/>
+                      </Node>
+                    </Node>
+                    <Node id="4307" score="negative" recordCount="19.0">
+                      <SimplePredicate field="cust_category" operator="equal" value="cat_C"/>
+                      <ScoreDistribution value="positive" recordCount="3.0"/>
+                      <ScoreDistribution value="negative" recordCount="16.0"/>
+                    </Node>
+                    <Node id="4314" score="positive" recordCount="112.0">
+                      <SimplePredicate field="cust_category" operator="equal" value="cat_A"/>
+                      <ScoreDistribution value="positive" recordCount="62.0"/>
+                      <ScoreDistribution value="negative" recordCount="50.0"/>
+                      <Node id="4315" score="negative" recordCount="41.0">
+                        <SimplePredicate field="credit_card" operator="equal" value="y"/>
+                        <ScoreDistribution value="positive" recordCount="18.0"/>
+                        <ScoreDistribution value="negative" recordCount="23.0"/>
+                      </Node>
+                      <Node id="4340" score="positive" recordCount="71.0">
+                        <SimplePredicate field="credit_card" operator="equal" value="n"/>
+                        <ScoreDistribution value="positive" recordCount="44.0"/>
+                        <ScoreDistribution value="negative" recordCount="27.0"/>
+                      </Node>
+                    </Node>
+                  </Node>
+                </Node>
+              </Node>
+              <Node id="4355" score="negative" recordCount="1437.0">
+                <SimplePredicate field="age" operator="equal" value="&lt;=50"/>
+                <ScoreDistribution value="positive" recordCount="554.0"/>
+                <ScoreDistribution value="negative" recordCount="883.0"/>
+                <Node id="4356" score="negative" recordCount="1185.0">
+                  <SimplePredicate field="privilege_card" operator="equal" value="n"/>
+                  <ScoreDistribution value="positive" recordCount="411.0"/>
+                  <ScoreDistribution value="negative" recordCount="774.0"/>
+                  <Node id="4357" score="negative" recordCount="356.0">
+                    <SimplePredicate field="financial_savings" operator="equal" value="y"/>
+                    <ScoreDistribution value="positive" recordCount="163.0"/>
+                    <ScoreDistribution value="negative" recordCount="193.0"/>
+                    <Node id="4358" score="positive" recordCount="149.0">
+                      <SimplePredicate field="savings_ldd" operator="equal" value="y"/>
+                      <ScoreDistribution value="positive" recordCount="86.0"/>
+                      <ScoreDistribution value="negative" recordCount="63.0"/>
+                    </Node>
+                    <Node id="4432" score="negative" recordCount="207.0">
+                      <SimplePredicate field="savings_ldd" operator="equal" value="n"/>
+                      <ScoreDistribution value="positive" recordCount="77.0"/>
+                      <ScoreDistribution value="negative" recordCount="130.0"/>
+                    </Node>
+                  </Node>
+                  <Node id="4528" score="negative" recordCount="829.0">
+                    <SimplePredicate field="financial_savings" operator="equal" value="n"/>
+                    <ScoreDistribution value="positive" recordCount="248.0"/>
+                    <ScoreDistribution value="negative" recordCount="581.0"/>
+                  </Node>
+                </Node>
+                <Node id="4725" score="positive" recordCount="252.0">
+                  <SimplePredicate field="privilege_card" operator="equal" value="y"/>
+                  <ScoreDistribution value="positive" recordCount="143.0"/>
+                  <ScoreDistribution value="negative" recordCount="109.0"/>
+                  <Node id="4726" score="positive" recordCount="209.0">
+                    <SimplePredicate field="savings_pel" operator="equal" value="n"/>
+                    <ScoreDistribution value="positive" recordCount="112.0"/>
+                    <ScoreDistribution value="negative" recordCount="97.0"/>
+                    <Node id="4727" score="positive" recordCount="117.0">
+                      <SimplePredicate field="financial_savings" operator="equal" value="y"/>
+                      <ScoreDistribution value="positive" recordCount="73.0"/>
+                      <ScoreDistribution value="negative" recordCount="44.0"/>
+                    </Node>
+                    <Node id="4788" score="negative" recordCount="92.0">
+                      <SimplePredicate field="financial_savings" operator="equal" value="n"/>
+                      <ScoreDistribution value="positive" recordCount="39.0"/>
+                      <ScoreDistribution value="negative" recordCount="53.0"/>
+                    </Node>
+                  </Node>
+                  <Node id="4837" score="positive" recordCount="43.0">
+                    <SimplePredicate field="savings_pel" operator="equal" value="y"/>
+                    <ScoreDistribution value="positive" recordCount="31.0"/>
+                    <ScoreDistribution value="negative" recordCount="12.0"/>
+                  </Node>
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+          <Node id="637" score="negative" recordCount="28.0">
+            <SimplePredicate field="account" operator="equal" value="n"/>
+            <ScoreDistribution value="positive" recordCount="0.0"/>
+            <ScoreDistribution value="negative" recordCount="28.0"/>
+          </Node>
+        </Node>
+        <Node id="384" score="negative" recordCount="7020.0">
+          <SimplePredicate field="financial_titles" operator="equal" value="n"/>
+          <ScoreDistribution value="positive" recordCount="1374.0"/>
+          <ScoreDistribution value="negative" recordCount="5646.0"/>
+          <Node id="418" score="negative" recordCount="3225.0">
+            <SimplePredicate field="bank_seniority" operator="equal" value=">=5"/>
+            <ScoreDistribution value="positive" recordCount="759.0"/>
+            <ScoreDistribution value="negative" recordCount="2466.0"/>
+            <Node id="429" score="negative" recordCount="1752.0">
+              <SimplePredicate field="cust_category" operator="equal" value="cat_B"/>
+              <ScoreDistribution value="positive" recordCount="537.0"/>
+              <ScoreDistribution value="negative" recordCount="1215.0"/>
+              <Node id="446" score="negative" recordCount="1558.0">
+                <SimplePredicate field="account" operator="equal" value="y"/>
+                <ScoreDistribution value="positive" recordCount="438.0"/>
+                <ScoreDistribution value="negative" recordCount="1120.0"/>
+                <Node id="467" score="positive" recordCount="76.0">
+                  <SimplePredicate field="financial_savings" operator="equal" value="y"/>
+                  <ScoreDistribution value="positive" recordCount="41.0"/>
+                  <ScoreDistribution value="negative" recordCount="35.0"/>
+                </Node>
+                <Node id="578" score="negative" recordCount="1482.0">
+                  <SimplePredicate field="financial_savings" operator="equal" value="n"/>
+                  <ScoreDistribution value="positive" recordCount="397.0"/>
+                  <ScoreDistribution value="negative" recordCount="1085.0"/>
+                  <Node id="591" score="negative" recordCount="335.0">
+                    <SimplePredicate field="savings_ldd" operator="equal" value="y"/>
+                    <ScoreDistribution value="positive" recordCount="139.0"/>
+                    <ScoreDistribution value="negative" recordCount="196.0"/>
+                    <Node id="594" score="positive" recordCount="175.0">
+                      <SimplePredicate field="age" operator="equal" value=">=51"/>
+                      <ScoreDistribution value="positive" recordCount="88.0"/>
+                      <ScoreDistribution value="negative" recordCount="87.0"/>
+                      <Node id="597" score="negative" recordCount="162.0">
+                        <SimplePredicate field="savings_cel" operator="equal" value="n"/>
+                        <ScoreDistribution value="positive" recordCount="76.0"/>
+                        <ScoreDistribution value="negative" recordCount="86.0"/>
+                        <Node id="599" score="negative" recordCount="150.0">
+                          <SimplePredicate field="revolving_card" operator="equal" value="n"/>
+                          <ScoreDistribution value="positive" recordCount="68.0"/>
+                          <ScoreDistribution value="negative" recordCount="82.0"/>
+                          <Node id="601" score="positive" recordCount="85.0">
+                            <SimplePredicate field="gender" operator="equal" value="F"/>
+                            <ScoreDistribution value="positive" recordCount="45.0"/>
+                            <ScoreDistribution value="negative" recordCount="40.0"/>
+                          </Node>
+                          <Node id="638" score="negative" recordCount="65.0">
+                            <SimplePredicate field="gender" operator="equal" value="M"/>
+                            <ScoreDistribution value="positive" recordCount="23.0"/>
+                            <ScoreDistribution value="negative" recordCount="42.0"/>
+                          </Node>
+                        </Node>
+                        <Node id="665" score="positive" recordCount="12.0">
+                          <SimplePredicate field="revolving_card" operator="equal" value="y"/>
+                          <ScoreDistribution value="positive" recordCount="8.0"/>
+                          <ScoreDistribution value="negative" recordCount="4.0"/>
+                        </Node>
+                      </Node>
+                      <Node id="678" score="positive" recordCount="13.0">
+                        <SimplePredicate field="savings_cel" operator="equal" value="y"/>
+                        <ScoreDistribution value="positive" recordCount="12.0"/>
+                        <ScoreDistribution value="negative" recordCount="1.0"/>
+                      </Node>
+                    </Node>
+                    <Node id="683" score="negative" recordCount="160.0">
+                      <SimplePredicate field="age" operator="equal" value="&lt;=50"/>
+                      <ScoreDistribution value="positive" recordCount="51.0"/>
+                      <ScoreDistribution value="negative" recordCount="109.0"/>
+                    </Node>
+                  </Node>
+                  <Node id="799" score="negative" recordCount="1147.0">
+                    <SimplePredicate field="savings_ldd" operator="equal" value="n"/>
+                    <ScoreDistribution value="positive" recordCount="258.0"/>
+                    <ScoreDistribution value="negative" recordCount="889.0"/>
+                  </Node>
+                </Node>
+              </Node>
+              <Node id="1167" score="positive" recordCount="194.0">
+                <SimplePredicate field="account" operator="equal" value="n"/>
+                <ScoreDistribution value="positive" recordCount="99.0"/>
+                <ScoreDistribution value="negative" recordCount="95.0"/>
+                <Node id="1168" score="positive" recordCount="187.0">
+                  <SimplePredicate field="savings_pel" operator="equal" value="n"/>
+                  <ScoreDistribution value="positive" recordCount="99.0"/>
+                  <ScoreDistribution value="negative" recordCount="88.0"/>
+                  <Node id="1169" score="negative" recordCount="29.0">
+                    <SimplePredicate field="savings_livret" operator="equal" value="y"/>
+                    <ScoreDistribution value="positive" recordCount="4.0"/>
+                    <ScoreDistribution value="negative" recordCount="25.0"/>
+                  </Node>
+                  <Node id="1179" score="positive" recordCount="158.0">
+                    <SimplePredicate field="savings_livret" operator="equal" value="n"/>
+                    <ScoreDistribution value="positive" recordCount="95.0"/>
+                    <ScoreDistribution value="negative" recordCount="63.0"/>
+                    <Node id="1180" score="negative" recordCount="15.0">
+                      <SimplePredicate field="financial_savings" operator="equal" value="y"/>
+                      <ScoreDistribution value="positive" recordCount="2.0"/>
+                      <ScoreDistribution value="negative" recordCount="13.0"/>
+                    </Node>
+                    <Node id="1186" score="positive" recordCount="143.0">
+                      <SimplePredicate field="financial_savings" operator="equal" value="n"/>
+                      <ScoreDistribution value="positive" recordCount="93.0"/>
+                      <ScoreDistribution value="negative" recordCount="50.0"/>
+                      <Node id="1188" score="negative" recordCount="7.0">
+                        <SimplePredicate field="credit_card" operator="equal" value="y"/>
+                        <ScoreDistribution value="positive" recordCount="1.0"/>
+                        <ScoreDistribution value="negative" recordCount="6.0"/>
+                      </Node>
+                      <Node id="1191" score="positive" recordCount="136.0">
+                        <SimplePredicate field="credit_card" operator="equal" value="n"/>
+                        <ScoreDistribution value="positive" recordCount="92.0"/>
+                        <ScoreDistribution value="negative" recordCount="44.0"/>
+                      </Node>
+                    </Node>
+                  </Node>
+                </Node>
+                <Node id="1215" score="negative" recordCount="7.0">
+                  <SimplePredicate field="savings_pel" operator="equal" value="y"/>
+                  <ScoreDistribution value="positive" recordCount="0.0"/>
+                  <ScoreDistribution value="negative" recordCount="7.0"/>
+                </Node>
+              </Node>
+            </Node>
+            <Node id="1216" score="negative" recordCount="1328.0">
+              <SimplePredicate field="cust_category" operator="equal" value="cat_C"/>
+              <ScoreDistribution value="positive" recordCount="149.0"/>
+              <ScoreDistribution value="negative" recordCount="1179.0"/>
+            </Node>
+            <Node id="1523" score="positive" recordCount="145.0">
+              <SimplePredicate field="cust_category" operator="equal" value="cat_A"/>
+              <ScoreDistribution value="positive" recordCount="73.0"/>
+              <ScoreDistribution value="negative" recordCount="72.0"/>
+              <Node id="1530" score="negative" recordCount="135.0">
+                <SimplePredicate field="savings_pel" operator="equal" value="n"/>
+                <ScoreDistribution value="positive" recordCount="65.0"/>
+                <ScoreDistribution value="negative" recordCount="70.0"/>
+                <Node id="1537" score="negative" recordCount="113.0">
+                  <SimplePredicate field="privilege_card" operator="equal" value="n"/>
+                  <ScoreDistribution value="positive" recordCount="50.0"/>
+                  <ScoreDistribution value="negative" recordCount="63.0"/>
+                  <Node id="1543" score="negative" recordCount="8.0">
+                    <SimplePredicate field="savings_ldd" operator="equal" value="y"/>
+                    <ScoreDistribution value="positive" recordCount="1.0"/>
+                    <ScoreDistribution value="negative" recordCount="7.0"/>
+                  </Node>
+                  <Node id="1552" score="negative" recordCount="105.0">
+                    <SimplePredicate field="savings_ldd" operator="equal" value="n"/>
+                    <ScoreDistribution value="positive" recordCount="49.0"/>
+                    <ScoreDistribution value="negative" recordCount="56.0"/>
+                    <Node id="1557" score="negative" recordCount="78.0">
+                      <SimplePredicate field="account" operator="equal" value="y"/>
+                      <ScoreDistribution value="positive" recordCount="30.0"/>
+                      <ScoreDistribution value="negative" recordCount="48.0"/>
+                    </Node>
+                    <Node id="1608" score="positive" recordCount="27.0">
+                      <SimplePredicate field="account" operator="equal" value="n"/>
+                      <ScoreDistribution value="positive" recordCount="19.0"/>
+                      <ScoreDistribution value="negative" recordCount="8.0"/>
+                    </Node>
+                  </Node>
+                </Node>
+                <Node id="1626" score="positive" recordCount="22.0">
+                  <SimplePredicate field="privilege_card" operator="equal" value="y"/>
+                  <ScoreDistribution value="positive" recordCount="15.0"/>
+                  <ScoreDistribution value="negative" recordCount="7.0"/>
+                </Node>
+              </Node>
+              <Node id="1654" score="positive" recordCount="10.0">
+                <SimplePredicate field="savings_pel" operator="equal" value="y"/>
+                <ScoreDistribution value="positive" recordCount="8.0"/>
+                <ScoreDistribution value="negative" recordCount="2.0"/>
+              </Node>
+            </Node>
+          </Node>
+          <Node id="419" score="negative" recordCount="1490.0">
+            <SimplePredicate field="bank_seniority" operator="equal" value="&lt;=1"/>
+            <ScoreDistribution value="positive" recordCount="20.0"/>
+            <ScoreDistribution value="negative" recordCount="1470.0"/>
+          </Node>
+          <Node id="420" score="negative" recordCount="2305.0">
+            <SimplePredicate field="bank_seniority" operator="equal" value="1&lt;bs&lt;5"/>
+            <ScoreDistribution value="positive" recordCount="595.0"/>
+            <ScoreDistribution value="negative" recordCount="1710.0"/>
+            <Node id="431" score="positive" recordCount="70.0">
+              <SimplePredicate field="financial_savings" operator="equal" value="y"/>
+              <ScoreDistribution value="positive" recordCount="36.0"/>
+              <ScoreDistribution value="negative" recordCount="34.0"/>
+              <Node id="435" score="positive" recordCount="65.0">
+                <SimplePredicate field="account" operator="equal" value="y"/>
+                <ScoreDistribution value="positive" recordCount="35.0"/>
+                <ScoreDistribution value="negative" recordCount="30.0"/>
+                <Node id="436" score="positive" recordCount="48.0">
+                  <SimplePredicate field="personnal_credit" operator="equal" value="n"/>
+                  <ScoreDistribution value="positive" recordCount="29.0"/>
+                  <ScoreDistribution value="negative" recordCount="19.0"/>
+                </Node>
+                <Node id="505" score="negative" recordCount="17.0">
+                  <SimplePredicate field="personnal_credit" operator="equal" value="y"/>
+                  <ScoreDistribution value="positive" recordCount="6.0"/>
+                  <ScoreDistribution value="negative" recordCount="11.0"/>
+                </Node>
+              </Node>
+              <Node id="537" score="negative" recordCount="5.0">
+                <SimplePredicate field="account" operator="equal" value="n"/>
+                <ScoreDistribution value="positive" recordCount="1.0"/>
+                <ScoreDistribution value="negative" recordCount="4.0"/>
+              </Node>
+            </Node>
+            <Node id="547" score="negative" recordCount="2235.0">
+              <SimplePredicate field="financial_savings" operator="equal" value="n"/>
+              <ScoreDistribution value="positive" recordCount="559.0"/>
+              <ScoreDistribution value="negative" recordCount="1676.0"/>
+              <Node id="584" score="negative" recordCount="552.0">
+                <SimplePredicate field="age" operator="equal" value=">=51"/>
+                <ScoreDistribution value="positive" recordCount="205.0"/>
+                <ScoreDistribution value="negative" recordCount="347.0"/>
+              </Node>
+              <Node id="848" score="negative" recordCount="1683.0">
+                <SimplePredicate field="age" operator="equal" value="&lt;=50"/>
+                <ScoreDistribution value="positive" recordCount="354.0"/>
+                <ScoreDistribution value="negative" recordCount="1329.0"/>
+                <Node id="858" score="negative" recordCount="636.0">
+                  <SimplePredicate field="credit_card" operator="equal" value="y"/>
+                  <ScoreDistribution value="positive" recordCount="72.0"/>
+                  <ScoreDistribution value="negative" recordCount="564.0"/>
+                </Node>
+                <Node id="1147" score="negative" recordCount="1047.0">
+                  <SimplePredicate field="credit_card" operator="equal" value="n"/>
+                  <ScoreDistribution value="positive" recordCount="282.0"/>
+                  <ScoreDistribution value="negative" recordCount="765.0"/>
+                  <Node id="1163" score="negative" recordCount="1043.0">
+                    <SimplePredicate field="revolving_card" operator="equal" value="n"/>
+                    <ScoreDistribution value="positive" recordCount="282.0"/>
+                    <ScoreDistribution value="negative" recordCount="761.0"/>
+                    <Node id="1170" score="negative" recordCount="874.0">
+                      <SimplePredicate field="savings_pel" operator="equal" value="n"/>
+                      <ScoreDistribution value="positive" recordCount="264.0"/>
+                      <ScoreDistribution value="negative" recordCount="610.0"/>
+                      <Node id="1183" score="negative" recordCount="834.0">
+                        <SimplePredicate field="personnal_credit" operator="equal" value="n"/>
+                        <ScoreDistribution value="positive" recordCount="261.0"/>
+                        <ScoreDistribution value="negative" recordCount="573.0"/>
+                        <Node id="1187" score="negative" recordCount="350.0">
+                          <SimplePredicate field="savings_livret" operator="equal" value="y"/>
+                          <ScoreDistribution value="positive" recordCount="70.0"/>
+                          <ScoreDistribution value="negative" recordCount="280.0"/>
+                        </Node>
+                        <Node id="1233" score="negative" recordCount="484.0">
+                          <SimplePredicate field="savings_livret" operator="equal" value="n"/>
+                          <ScoreDistribution value="positive" recordCount="191.0"/>
+                          <ScoreDistribution value="negative" recordCount="293.0"/>
+                          <Node id="1234" score="negative" recordCount="384.0">
+                            <SimplePredicate field="account" operator="equal" value="y"/>
+                            <ScoreDistribution value="positive" recordCount="119.0"/>
+                            <ScoreDistribution value="negative" recordCount="265.0"/>
+                          </Node>
+                          <Node id="1267" score="positive" recordCount="100.0">
+                            <SimplePredicate field="account" operator="equal" value="n"/>
+                            <ScoreDistribution value="positive" recordCount="72.0"/>
+                            <ScoreDistribution value="negative" recordCount="28.0"/>
+                            <Node id="1268" score="positive" recordCount="91.0">
+                              <SimplePredicate field="savings_cel" operator="equal" value="n"/>
+                              <ScoreDistribution value="positive" recordCount="72.0"/>
+                              <ScoreDistribution value="negative" recordCount="19.0"/>
+                            </Node>
+                            <Node id="1277" score="negative" recordCount="9.0">
+                              <SimplePredicate field="savings_cel" operator="equal" value="y"/>
+                              <ScoreDistribution value="positive" recordCount="0.0"/>
+                              <ScoreDistribution value="negative" recordCount="9.0"/>
+                            </Node>
+                          </Node>
+                        </Node>
+                      </Node>
+                      <Node id="1278" score="negative" recordCount="40.0">
+                        <SimplePredicate field="personnal_credit" operator="equal" value="y"/>
+                        <ScoreDistribution value="positive" recordCount="3.0"/>
+                        <ScoreDistribution value="negative" recordCount="37.0"/>
+                      </Node>
+                    </Node>
+                    <Node id="1284" score="negative" recordCount="169.0">
+                      <SimplePredicate field="savings_pel" operator="equal" value="y"/>
+                      <ScoreDistribution value="positive" recordCount="18.0"/>
+                      <ScoreDistribution value="negative" recordCount="151.0"/>
+                    </Node>
+                  </Node>
+                  <Node id="1339" score="negative" recordCount="4.0">
+                    <SimplePredicate field="revolving_card" operator="equal" value="y"/>
+                    <ScoreDistribution value="positive" recordCount="0.0"/>
+                    <ScoreDistribution value="negative" recordCount="4.0"/>
+                  </Node>
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </Node>
+      </Node>
+      <Node id="2" score="positive" recordCount="1880.0">
+        <SimplePredicate field="savings_pep" operator="equal" value="y"/>
+        <ScoreDistribution value="positive" recordCount="1741.0"/>
+        <ScoreDistribution value="negative" recordCount="139.0"/>
+      </Node>
+    </Node>
+  </TreeModel>
+</PMML>
