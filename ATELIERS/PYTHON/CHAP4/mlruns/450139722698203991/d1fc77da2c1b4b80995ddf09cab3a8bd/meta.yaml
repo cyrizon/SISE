@@ -1,0 +1,14 @@
+artifact_uri: file:///c:/Users/cpecnik/Documents/COURSES/ATELIERS/PYTHON/CHAP4/mlruns/450139722698203991/d1fc77da2c1b4b80995ddf09cab3a8bd/artifacts
+end_time: 1760094008034
+entry_point_name: ''
+experiment_id: '450139722698203991'
+lifecycle_stage: active
+run_id: d1fc77da2c1b4b80995ddf09cab3a8bd
+run_name: Arbre standard
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1760093999986
+status: 3
+tags: []
+user_id: cpecnik

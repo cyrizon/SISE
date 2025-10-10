@@ -1,0 +1,10 @@
+artifact_location: file:///c:/Users/cpecnik/Documents/COURSES/ATELIERS/PYTHON/CHAP4/mlruns/450139722698203991/models/m-bf414369274d46a594d6e59ee1efd2aa/artifacts
+creation_timestamp: 1760094000106
+experiment_id: '450139722698203991'
+last_updated_timestamp: 1760094007583
+model_id: m-bf414369274d46a594d6e59ee1efd2aa
+model_type: null
+name: model
+source_run_id: d1fc77da2c1b4b80995ddf09cab3a8bd
+status: 2
+status_message: null
