@@ -3,3 +3,11 @@
 *.csv
 *.pdf
 *.docx
+
+#Folders
+ATELIERS/apache-doris
+R/SEANCE4/data
+R/SEANCE6/CSV Database
+
+#Files
+R/SEANCE4/.Rhistory
